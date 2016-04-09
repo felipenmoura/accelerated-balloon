@@ -19,7 +19,8 @@ body {
     margin: auto;
     width: 200px;
     height: 500px;
-    max-height: 100%;
+    max-height: 60%;
+    max-width: 20%;
     transform-origin: bottom center;
     transition: all ease-out .4s;
 }
