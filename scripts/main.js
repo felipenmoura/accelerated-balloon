@@ -1,5 +1,4 @@
 (()=>{
-    
     var balloon = document.querySelector('#balloon'),
         line = document.querySelector('.balloon--line'),
         lastZ = 0,
@@ -10,6 +9,8 @@
         wipDivizor = 12;
     
     function handleOrientation(event) {
+        
+        console.log(event.absolute);
         
         var absolute = event.absolute;
         var alpha    = event.alpha;
@@ -27,10 +28,8 @@
             }
             if (gamma > 0) {
                 line.style.width = (gamma * 0.5) + 'px';
-                //line.style.transform = 'translateX(' + -(gamma*.2) + 'px)';
                 document.body.setAttribute('data-moving', 'left');
             }
-            
             
             // adding wipplash effect
             wip = (gamma - lastZ)/wipDivizor;
@@ -43,6 +42,7 @@
                 balloon.style.transform = "rotateZ("+(-1*(gamma - wip))+"deg)";
             }, 400);
             
+            // and now we store the gamma
             lastZ = gamma;
         }
         
@@ -54,5 +54,4 @@
     }
 
     window.addEventListener("deviceorientation", handleOrientation, true);
-
 })();
